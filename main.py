@@ -11,7 +11,13 @@
 import PySimpleGUI as sg
 
 #   CONSTANTS
-BUTTON_SIZE = (2,2)
+BUTTON_SIZE = (4,2)
+DISPLAY_WIDTH = 14
+DISPLAY_HEIGHT = 3
+DISPLAY_KEY = "DISPLAY"
+
+BLACK = "black"
+WHITE = "white"
 
 #   FUNCTIONS
 def create_button(label):
@@ -19,8 +25,19 @@ def create_button(label):
     return button
 
 #   GLOBAL VARIABLES
+display = sg.Text("",
+                  key=DISPLAY_KEY,
+                  size=(DISPLAY_WIDTH, DISPLAY_HEIGHT),
+                  relief=sg.RELIEF_SUNKEN,
+                  border_width=1,
+                  justification="right",
+                  font=("sans-serif", 12),
+                  expand_x=True,
+                  text_color=BLACK,
+                  background_color=WHITE)
+
 layout = [
-    [ create_button("C"), sg.Text("-123456789.0") ],
+    [ create_button("C"), display ],
     [ create_button("7"), create_button("8"), create_button("9"), create_button("+") ],
     [ create_button("4"), create_button("5"), create_button("6"), create_button("-") ],
     [ create_button("1"), create_button("2"), create_button("3"), create_button("x") ],
