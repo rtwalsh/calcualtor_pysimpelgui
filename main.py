@@ -11,10 +11,11 @@
 import PySimpleGUI as sg
 
 #   CONSTANTS
+BUTTON_SIZE = (2,2)
 
 #   FUNCTIONS
 def create_button(label):
-    button = sg.Button(label)
+    button = sg.Button(label, size=BUTTON_SIZE)
     return button
 
 #   GLOBAL VARIABLES
